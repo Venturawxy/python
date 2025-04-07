@@ -82,5 +82,5 @@ def main():
         else:
             print ("Opção invalida! Tente novamente.")
 
-if__name__ == "__maini__":
+if__name__ == "__main__":
 main()

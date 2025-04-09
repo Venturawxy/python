@@ -1,14 +1,14 @@
-import jaon
+import json
 
-ARQUIVO CADASTROS "cadastros.json"
+ARQUIVO_CADASTROS "cadastros.json"
 
-def exibir menu():
+def exibir_menu():
 
     print("\n=================== MENU CADASTRO ===================")
 
-    print("1. Cadastrar pessca")
+    print("1. Cadastrar pessoa")
 
-    print("2. Ver cadastrca")
+    print("2. Ver cadastro")
 
     print("3. Sair")
 
@@ -18,9 +18,9 @@ der salvar_cadastros (cadastros):
 
     with open (ARQUIVO CADASTROS, "w", encoding="utf-8") as arquivo:
 
-        json.dump (cadastros, arquivo, indent-4, ensure_ascii False)
+        json.dump (cadastros, arquivo, indent=4, ensure_ascii=False)
 
-def carregar cadastros():
+def carregar_cadastros():
 
     try:
 
@@ -32,24 +32,24 @@ except (FileNotFoundError, json.JSONDecodeError):
 
         return []
 
-def cadastrar pessoa (cadastros):
+def cadastrar_pessoa (cadastros):
 
-nome input("Nome: ")
+nome = input("Nome: ")
 
-idade input("Idade: ")
+idade = input("Idade: ")
 
-turma input ("Turma: ")
+turma = input ("Turma: ")
 
-curso input("Curso: ")
+curso = input("Curso: ")
 
-    cadastros.append({"Home": nome, "Idade": idade, "Turma": turma,
+    cadastros.append({"Nome": nome, "Idade": idade, "Turma": turma,
 
-Curso: curso})"
+"Curso": curso})"
 
-    salvar cadastros (cadastros)
+    salvar_cadastros (cadastros)
     print("Cadastro realizado com sucesso!")
 
-der ver cadastros (cadastros):
+der ver_cadastros (cadastros):
 
     if not cadastros:
 
@@ -63,24 +63,23 @@ der ver cadastros (cadastros):
 
             print(f"{i}. Nome: {pessoa['Nome']}, Idade:
 
-{pessoal ['Idade']}, Turma: {pessoa['Turma']}, Curso: {pessoa['Curso']})
+{pessoa['Idade']}, Turma: {pessoa['Turma']}, Curso: {pessoa['Curso']})
 
 input("\nPressione Enter para voltar ao menu...")
 
 def main():
-    cadastros carregar_cadastros()
+    cadastros=carregar_cadastros()
     while True:
         exibir_menu()
-        opcao input("Escolha uma opção: ")
-        if opcao "1":
-             cadastrar pessoa (cadastros)
+        opcao=input("Escolha uma opção: ")
+        if opcao=="1":
+             cadastrar_pessoa (cadastros)
         elif opcao "2":
-            ver cadastros (cadastros)
+            ver_cadastros (cadastros)
         elif opcao == "3":
             print ("Obrigado por utilizar o sistema de cadastro!")
             break
         else:
             print ("Opção invalida! Tente novamente.")
 
-if__name__ == "__main__":
-main()
+if__name__=="__main__":
